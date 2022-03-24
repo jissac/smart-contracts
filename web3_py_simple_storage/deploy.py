@@ -1,4 +1,6 @@
 from solcx import compile_standard, install_solc
+import json
+from web3 import web3
 install_solc("0.6.0")
 
 with open("./SimpleStorage.sol", "r") as file:
@@ -15,6 +17,14 @@ compiled_sol = compile_standard(
             }
         },
     },
-solc
+    solc_version="0.6.0",
 )
 print(compiled_sol)
+
+with open("compiled_code.json", "w") as file:
+    json.dump(compiled_sol, file)
+
+# when you deploy you need bytecode and abi
+bytecode = compiled_sol["contracts"]["SimpleStorage.sol"]["SimpleStorage"]["evm"]["bytecode"]["object"]
+abi = compiled_sol["contracts"]["SimpleStorage.sol"]["SimpleStorage"]["abi"]
+print(abi)
