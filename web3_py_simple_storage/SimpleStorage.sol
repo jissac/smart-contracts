@@ -17,8 +17,9 @@ contract SimpleStorage {
     // mapping dictionary like data structure, 1 value per key
     mapping(string => uint256) public nameToFavNumber;
 
-    function store(uint256 _favNumber) public {
+    function store(uint256 _favNumber) public returns(uint256) {
         favNumber = _favNumber;
+        return _favNumber;
     }
     // view - view some state off the blockchain
     function retrieve() public view returns(uint256) {
