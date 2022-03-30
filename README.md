@@ -1,10 +1,6 @@
 # smart-contracts
-full stack blockchain development
-- https://github.com/smartcontractkit/full-blockchain-solidity-course-py
-- https://www.youtube.com/watch?v=M576WGiDBdQ
 
-
-## 0. intro: 
+## 0. intro
 Smart contracts and blockchains enable:
 1. Decentralization
     - No single entity to control. Independent node operators run the network.
@@ -27,10 +23,11 @@ Smart contracts and blockchains enable:
 7. DAOs - Decentralized Autonomous Organizations
     - Governance on chain, org that lives in the network
 
-## 1. high level overview:
+## 1. high level overview
 **Ethereum Transaction On a Live Blockchain**
 - Gas: unit of computational measure. Every transaction that happens on-chain pays a "gas fee" to node operators
   - any time you change state of the blockchain, pay gas
+  - Wei is smallest denomination of Ether Wei -> Gwei -> Ether
   - Gas Price: how much it costs per unit of gas
   - Gas Limit: Max amount of gas in a transaction
   - Transaction Fee: Gas Used * Gas Price
@@ -103,12 +100,70 @@ Smart contracts and blockchains enable:
     - Rollups: rollups that "rollup" their transactions into main chain
       - security of main chain, but fast transactions by freeing up blockchain computation
 
-## 2. Storage Factory
+**Solidity**
 Solidity: https://docs.soliditylang.org/en/v0.8.6/index.html
 Remix: https://remix.ethereum.org/
 1. Define solidity version
-2. contract
+2. contract (like a class, defines functions of project)
 3. Types and declaring variables
 4. functions: self contained code that executes some task 
 5. View and Pure are non-state changing functions
 6. Structs
+7. Arrays
+8. memory vs storage
+9. mappings
+10. SPDX License
+11. Injected Web3: taking sol source code and injecting metamask into browser
+
+## 2. projects
+**Storage Factory**
+(Contract that stores and display strings and numbers)            
+`SimpleStorage.sol`, `StorageFactory.sol`
+- Can call a contract from another contract
+- Anytime you do that you need
+  - Address
+  - ABI: Application Binary Interface
+
+**Fund Me**
+(Crowdsourcing contract that accepts payment from accounts and enables account owner to withdraw donated funds)           
+`FundMe.sol`    
+- payable enables payment on ETH
+- msg.sender and msg.value are key words in every transaction
+- blockchains are deterministic (all nodes have to agree on same value)
+  - can't do API calls, random num gen bc each node will have a diff value (non-deterministic)
+- Oracles allow data from the real world to be used by blockchains
+- Decimals dont work in solidity
+- Interfaces compile down to an ABI
+- The ABI tells solidity and other programming languages how it can interact with another contract
+  - always need an ABI to interact w a contract
+- libraries are similar to contracts except that they are isolated code, their purpose is that they are deployed only once at a specific address and their code is reused
+- Using keyword: using a for b - can be used to attach library functions (from library a) to any type (b) in the context of a contract
+- https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol
+- modifiers: https://medium.com/coinmonks/solidity-tutorial-all-about-modifiers-a86cf81c14cb
+
+
+**Web3 python Simple Storage**
+( Web3 python version of previous Simple Storage smart contract)          
+`/web3_py_simple_storage`
+
+- Limitations of Remix
+  - Can't integrate other parts of a project
+  - Can't save files locally w/out a plugin
+  - doesn't have python :)
+
+- web3.py and Brownie for smart contract dev in Python!
+- 2 things you always need:
+  - contract address
+  - contract ABI
+- Simulate and deploy contract to blockchain using Ganache or ganache-cli
+- Deploy to a testnet using Infura RPC URL, Alchemy, etc
+- Find out chain ids: https://chainlist.org/
+
+**Brownie Simple Storage**
+
+
+## references:
+full stack blockchain development
+- https://github.com/smartcontractkit/full-blockchain-solidity-course-py
+- https://www.youtube.com/watch?v=M576WGiDBdQ
+- https://www.youtube.com/watch?v=M576WGiDBdQ
