@@ -167,3 +167,5 @@ full stack blockchain development
 - https://github.com/smartcontractkit/full-blockchain-solidity-course-py
 - https://www.youtube.com/watch?v=M576WGiDBdQ
 - https://www.youtube.com/watch?v=M576WGiDBdQ
+- https://trufflesuite.com/ganache/index.html
+- https://eth-brownie.readthedocs.io/en/stable/
