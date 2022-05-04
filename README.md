@@ -160,7 +160,12 @@ Remix: https://remix.ethereum.org/
 - Find out chain ids: https://chainlist.org/
 
 **Brownie Simple Storage**
-
+- Brownie: smart contract development platform built on Python
+  - relies on web3.py
+  - used by yearn finance, curve, etc.
+- commands:
+  - `brownie init`, `brownie compile`, `brownie run scripts/deploy.py`, `brownie accounts new <accountname>`, `brownie accounts list`
+- 
 
 ## references:
 full stack blockchain development

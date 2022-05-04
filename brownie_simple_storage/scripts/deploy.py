@@ -6,6 +6,7 @@ def deploy_simple_storage():
     # 1. test account 2. eth account thru cli 3. using venv
 
     account = accounts[0]
+    print(account)
     simple_storage = SimpleStorage.deploy({"from": account})
     print(simple_storage)
     stored_value = simple_storage.retrieve()
